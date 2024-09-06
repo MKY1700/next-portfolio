@@ -3,7 +3,6 @@ import Grid from '@mui/material/Grid2';
 import Lottie from 'react-lottie-player'
 import lottiejson from '/public/mainpage.json'
 import styles from './mainpage.module.css'
-import { useRouter } from 'next/router';
 
 export default function Mainpage() {
     const router = useRouter();
