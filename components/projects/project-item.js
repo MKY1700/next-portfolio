@@ -10,7 +10,7 @@ import { Router, useRouter } from 'next/router';
 export default function ProjectItem({data}) {
     console.log(data)
     const title = data.properties.이름.title[0]?.plain_text;
-    const tag = data.properties.태그.multi_select;
+    const tags = data.properties.태그.multi_select;
     const start = data.properties?.작업기간.date.start;
     const end = data.properties?.작업기간.date.end;
     const description = data.properties?.설명.rich_text[0].plain_text;
@@ -51,6 +51,10 @@ export default function ProjectItem({data}) {
                     <Typography variant="body2" sx={{color : 'text.secondary'}}>
                         {description}
                     </Typography>
+                    <Typography variant="body2" sx={{color : 'text.secondary'}}>
+                        {tags.map((aTag) => (<span key={aTag.id}>#{aTag.name}</span>))}
+                    </Typography>
+
                 </CardContent>
                 <CardActions>
                     <Button size="small" onClick={() => {router.push(github)}}>Visit Github</Button>
